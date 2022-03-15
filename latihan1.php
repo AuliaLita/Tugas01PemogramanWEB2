@@ -1,38 +1,20 @@
-<form action="" method="POST">
-      PROGRAM CEK KELULUSAN<br>
-      Nilai Ujian : <input type="text" name="nilai">
-      <input type="submit" value="Hasil">
-    </form>
-    <?php
-      if ($_POST)
-      {
-        $nilai = $_POST['nilai'];
-        if ($nilai >= 90)
-        {
-          $grade = "A+";
-        }
-        elseif ($nilai >= 80)
-        {
-          $grade = "A";
-        }
-        elseif ($nilai >= 70)
-        {
-          $grade = "B";
-        }
-        elseif ($nilai >= 60)
-        {
-          $grade = "C";
-          
-        }
-        else
-        {
-          $grade = "D";
-          
-        }
-        echo "Hasil Kelulusan";
-        echo "<br>";
-        echo "Nilai : " . $nilai;
-        echo "<br>";
-        echo "Indeks Prestasi : " . $grade;
-      }
-    ?>
+
+<form name="grade" method="post">
+<input type="text" name="txtnilai">
+<input type="submit" name="hitung" value="Konversi">
+</form>
+
+<?php 
+
+if (isset($_POST['hitung'])){
+$nilai = $_POST['txtnilai'];
+if ($nilai >= 80 ){ $grade='A';} else
+if ($nilai > 70 ){ $grade='B';} else
+if ($nilai > 60 ){ $grade='C';} else
+if ($nilai > 50 ){ $grade='D';} else
+if ($nilai <= 50){ $grade='E';}
+
+echo "Grade = $grade";
+
+}
+?>
